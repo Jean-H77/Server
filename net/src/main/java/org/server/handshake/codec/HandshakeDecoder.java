@@ -1,8 +1,9 @@
-package org.server.handshake;
+package org.server.handshake.codec;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import org.server.handshake.InboundHandshakePacket;
 
 import java.util.List;
 

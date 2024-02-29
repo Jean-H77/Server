@@ -3,8 +3,8 @@ package org.server.bootstrap.initializer;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
-import org.server.handshake.HandshakeDecoder;
-import org.server.handshake.HandshakeEncoder;
+import org.server.handshake.codec.HandshakeDecoder;
+import org.server.handshake.codec.HandshakeEncoder;
 import org.server.handshake.HandshakeHandler;
 
 public class ChannelInit extends ChannelInitializer<SocketChannel> {

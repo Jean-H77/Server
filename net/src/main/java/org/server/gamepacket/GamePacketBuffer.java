@@ -13,7 +13,7 @@ public class GamePacketBuffer {
             32767, 65535, 0x1ffff, 0x3ffff, 0x7ffff, 0xfffff, 0x1fffff, 0x3fffff, 0x7fffff, 0xffffff, 0x1ffffff,
             0x3ffffff, 0x7ffffff, 0xfffffff, 0x1fffffff, 0x3fffffff, 0x7fffffff, -1};
 
-    private static final int STRING_TERMINATOR = 10;
+    public static final int STRING_TERMINATOR = 10;
 
     public GamePacketBuffer(byte[] buffer) {
         this.buffer = buffer;

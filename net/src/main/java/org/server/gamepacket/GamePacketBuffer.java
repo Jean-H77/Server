@@ -2,7 +2,7 @@ package org.server.gamepacket;
 
 import java.math.BigInteger;
 
-public class RSBuffer {
+public class GamePacketBuffer {
 
     public final byte[] buffer;
 
@@ -15,7 +15,7 @@ public class RSBuffer {
 
     private static final int STRING_TERMINATOR = 10;
 
-    public RSBuffer(byte[] buffer) {
+    public GamePacketBuffer(byte[] buffer) {
         this.buffer = buffer;
     }
 

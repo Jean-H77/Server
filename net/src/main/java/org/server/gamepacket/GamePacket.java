@@ -3,9 +3,9 @@ package org.server.gamepacket;
 public abstract class GamePacket {
 
     private final int opcode;
-    private final RSBuffer buffer;
+    private final GamePacketBuffer buffer;
 
-    protected GamePacket(int opcode, RSBuffer buffer) {
+    protected GamePacket(int opcode, GamePacketBuffer buffer) {
         this.opcode = opcode;
         this.buffer = buffer;
     }

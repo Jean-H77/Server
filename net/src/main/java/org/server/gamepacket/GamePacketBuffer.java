@@ -267,7 +267,6 @@ public class GamePacketBuffer {
     }
 
     public void putString(final String s) {
-        // s.getBytes(0, s.length(), buffer, currentOffset); //deprecated
         System.arraycopy(s.getBytes(), 0, this.buffer, this.position, s.length());
         this.position += s.length();
         this.buffer[this.position++] = STRING_TERMINATOR;

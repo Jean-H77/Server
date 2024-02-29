@@ -9,10 +9,8 @@ public class LoginHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         if(msg instanceof LoginResponsePacket) {
-            System.out.println("Writing");
-            ctx.write(msg);
+            ctx.writeAndFlush(msg);
         }
-        ctx.flush();
         ReferenceCountUtil.release(msg);
     }
 }

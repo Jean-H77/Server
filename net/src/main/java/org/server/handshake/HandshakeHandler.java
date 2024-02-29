@@ -9,9 +9,8 @@ public class HandshakeHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         if(msg instanceof InboundHandshakePacket) {
-            ctx.write(msg);
+            ctx.writeAndFlush(msg);
         }
-        ctx.flush();
         ReferenceCountUtil.release(msg);
     }
 }

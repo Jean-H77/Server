@@ -1,5 +1,7 @@
 package org.server.engine;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import org.server.bootstrap.Bootstrap;
 import org.server.bootstrap.initializer.ChannelInit;
 import org.server.bootstrap.impl.NioNetworkBootstrap;
@@ -10,30 +12,26 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 //@Todo fix gradle multi-module dependencies
-public enum GameEngine {
-    INSTANCE(new NioNetworkBootstrap(43594, new ChannelInit()));
+public class GameEngine {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GameEngine.class);
     private final Bootstrap bootstrap;
+    private final GameLoop gameLoop;
 
-    GameEngine(Bootstrap bootstrap) {
+    @Inject
+    public GameEngine(@Named("Nio") Bootstrap bootstrap,
+                      GameLoop gameLoop) {
         this.bootstrap = bootstrap;
+        this.gameLoop = gameLoop;
     }
 
-    private void start() {
+    public void start() {
         try {
+            LOGGER.info("Starting");
+            Thread.startVirtualThread(gameLoop);
             bootstrap.run();
         } catch (Exception e) {
             LOGGER.error("Error while bootstrapping", e);
-        }
-    }
-
-    public static void main(String[] args) {
-        try(ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1)) {
-            executor.scheduleAtFixedRate(new GameLoop(), 0, 600, TimeUnit.MILLISECONDS);
-            INSTANCE.start();
-        } catch (Exception e) {
-            LOGGER.error("Error with the game engine", e);
         }
     }
 }

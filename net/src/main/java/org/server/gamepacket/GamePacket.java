@@ -1,11 +1,11 @@
-package org.server.packet;
+package org.server.gamepacket;
 
-public abstract class Packet {
+public abstract class GamePacket {
 
     private final int opcode;
     private final RSBuffer buffer;
 
-    protected Packet(int opcode, RSBuffer buffer) {
+    protected GamePacket(int opcode, RSBuffer buffer) {
         this.opcode = opcode;
         this.buffer = buffer;
     }

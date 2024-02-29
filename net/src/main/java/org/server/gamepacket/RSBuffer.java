@@ -1,4 +1,4 @@
-package org.server.packet;
+package org.server.gamepacket;
 
 import java.math.BigInteger;
 

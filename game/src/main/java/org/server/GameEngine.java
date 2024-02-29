@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 //@Todo fix gradle multi-module dependencies
 public enum GameEngine {
-    INSTANCE(new NioNetworkBootstrap(43595, new ChannelInit()));
+    INSTANCE(new NioNetworkBootstrap(43594, new ChannelInit()));
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GameEngine.class);
     private final Bootstrap bootstrap;

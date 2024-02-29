@@ -6,7 +6,7 @@ import com.google.inject.name.Names;
 import org.server.bootstrap.Bootstrap;
 import org.server.bootstrap.impl.NioNetworkBootstrap;
 
-public class GameModule extends AbstractModule {
+public class GameEngineModule extends AbstractModule {
 
     @Override
     protected void configure() {

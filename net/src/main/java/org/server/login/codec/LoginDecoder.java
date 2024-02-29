@@ -17,7 +17,7 @@ public class LoginDecoder extends ByteToMessageDecoder {
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
         byte connectedStatus = byteBuf.readByte();
         byte size = byteBuf.readByte();
-        byte is255 = byteBuf.readByte();
+        short is255 = byteBuf.readUnsignedByte();
         short is317 = byteBuf.readShort();
         byte clientVersion = byteBuf.readByte();
 

@@ -20,10 +20,18 @@ public enum GameEngine {
         this.bootstrap = bootstrap;
     }
 
+    private void start() {
+        try {
+            bootstrap.run();
+        } catch (Exception e) {
+            LOGGER.error("Error while bootstrapping", e);
+        }
+    }
+
     public static void main(String[] args) {
         try(ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1)) {
             executor.scheduleAtFixedRate(new GameLoop(), 0, 600, TimeUnit.MILLISECONDS);
-            INSTANCE.bootstrap.run();
+            INSTANCE.start();
         } catch (Exception e) {
             LOGGER.error("Error with the game engine", e);
         }

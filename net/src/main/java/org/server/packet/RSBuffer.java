@@ -13,6 +13,8 @@ public class RSBuffer {
             32767, 65535, 0x1ffff, 0x3ffff, 0x7ffff, 0xfffff, 0x1fffff, 0x3fffff, 0x7fffff, 0xffffff, 0x1ffffff,
             0x3ffffff, 0x7ffffff, 0xfffffff, 0x1fffffff, 0x3fffffff, 0x7fffffff, -1};
 
+    private static final int STRING_TERMINATOR = 10;
+
     public RSBuffer(byte[] buffer) {
         this.buffer = buffer;
     }
@@ -129,7 +131,7 @@ public class RSBuffer {
 
     public String getString() {
         final int i = this.position;
-        while (this.buffer[this.position++] != 10) {
+        while (this.buffer[this.position++] != STRING_TERMINATOR) {
         }
         return new String(this.buffer, i, this.position - i - 1);
     }
@@ -268,7 +270,7 @@ public class RSBuffer {
         // s.getBytes(0, s.length(), buffer, currentOffset); //deprecated
         System.arraycopy(s.getBytes(), 0, this.buffer, this.position, s.length());
         this.position += s.length();
-        this.buffer[this.position++] = 10;
+        this.buffer[this.position++] = STRING_TERMINATOR;
     }
 
     public int readBits(int i) {
@@ -290,7 +292,7 @@ public class RSBuffer {
 
     public byte[] readBytes() {
         final int tmpPos = this.position;
-        while (this.buffer[this.position++] != 10) {
+        while (this.buffer[this.position++] != STRING_TERMINATOR) {
         }
         final byte[] buf = new byte[this.position - tmpPos - 1];
         System.arraycopy(this.buffer, tmpPos, buf, 0, this.position - 1 - tmpPos);

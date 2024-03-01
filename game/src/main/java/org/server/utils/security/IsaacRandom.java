@@ -1,3 +1,5 @@
+package org.server.utils.security;
+
 /**
  * <p>
  * An implementation of the <a href="http://www.burtleburtle.net/bob/rand/isaacafa.html">ISAAC</a> psuedorandom number

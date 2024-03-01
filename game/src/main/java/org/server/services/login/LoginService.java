@@ -6,7 +6,6 @@ import org.server.World;
 import org.server.entity.Player;
 import org.server.net.gamepacket.codec.GamePacketDecoder;
 import org.server.net.gamepacket.codec.GamePacketEncoder;
-import org.server.net.login.LoginResponse;
 import org.server.net.login.codec.LoginDecoder;
 import org.server.net.login.codec.LoginEncoder;
 import org.server.services.Service;

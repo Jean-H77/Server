@@ -1,4 +1,4 @@
-package org.server.net.login;
+package org.server.services.login;
 
 public record LoginResponse(
         byte responseCode,

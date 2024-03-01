@@ -31,6 +31,7 @@ public class GameHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         if(msg instanceof HandshakeRequest r) {
             serviceManager.handshakeService().process(new HandshakeSession(ctx.channel(), r));
+            return;
         }
 
         if(msg instanceof LoginRequest lr) {
@@ -53,12 +54,6 @@ public class GameHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) {
-        /*Channel channel = ctx.channel();
-        Session session = channel.attr(ApolloHandler.SESSION_KEY).getAndRemove();
-        if (session != null) {
-            session.destroy();
-        }
-        logger.fine("Channel disconnected: " + channel);
-        channel.close();*/
+
     }
 }

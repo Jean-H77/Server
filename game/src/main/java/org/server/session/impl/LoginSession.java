@@ -8,7 +8,7 @@ public class LoginSession extends Session {
 
     private final LoginRequest loginRequest;
 
-    protected LoginSession(Channel channel, LoginRequest loginRequest) {
+    public LoginSession(Channel channel, LoginRequest loginRequest) {
         super(channel);
         this.loginRequest = loginRequest;
     }

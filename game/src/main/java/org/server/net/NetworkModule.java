@@ -34,11 +34,7 @@ public class NetworkModule extends AbstractModule {
                 .annotatedWith(Names.named("Nio"))
                 .to(NioNetworkBootstrap.class);
 
-        bind(ChannelHandler.class).to(ChannelInit.class).asEagerSingleton();
+        bind(ChannelHandler.class).to(ChannelInit.class);
         bind(ChannelInboundHandler.class).to(GameHandler.class).in(Scopes.SINGLETON);
-        bind(HandshakeDecoder.class).in(Scopes.SINGLETON);
-        bind(HandshakeEncoder.class).in(Scopes.SINGLETON);
-        bind(LoginDecoder.class).in(Scopes.SINGLETON);
-        bind(LoginEncoder.class).in(Scopes.SINGLETON);
     }
 }

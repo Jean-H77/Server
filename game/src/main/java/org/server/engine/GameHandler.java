@@ -10,6 +10,7 @@ import org.server.services.handshake.HandshakeRequest;
 import org.server.services.login.LoginRequest;
 import org.server.session.Session;
 import org.server.session.impl.HandshakeSession;
+import org.server.session.impl.LoginSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,10 +30,11 @@ public class GameHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         if(msg instanceof HandshakeRequest r) {
-            serviceManager.handshakeService().verify(new HandshakeSession(ctx.channel(), r));
+            serviceManager.handshakeService().process(new HandshakeSession(ctx.channel(), r));
         }
 
         if(msg instanceof LoginRequest lr) {
+            serviceManager.loginService().process(new LoginSession(ctx.channel(), lr));
         }
     }
 

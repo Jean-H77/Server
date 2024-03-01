@@ -19,8 +19,6 @@ public class GameLoop implements Runnable {
     public void run() {
         while(isRunning) {
             try {
-
-                world.handleLoginQueue();
                 Thread.sleep(TICK_DELAY);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

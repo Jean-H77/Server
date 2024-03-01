@@ -8,6 +8,8 @@ import org.server.net.bootstrap.Bootstrap;
 import org.server.net.bootstrap.impl.NioNetworkBootstrap;
 import org.server.World;
 
+import java.util.Timer;
+
 public class GameEngineModule extends AbstractModule {
 
     @Override

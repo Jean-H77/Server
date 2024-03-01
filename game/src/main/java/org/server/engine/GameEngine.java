@@ -27,7 +27,7 @@ public class GameEngine {
     public void start(Injector injector) {
         try {
             LOGGER.info("Starting");
-            Thread.startVirtualThread(gameLoop);
+            gameLoop.start();
             serviceManager.startServices();
             bootstrap.run();
         } catch (Exception e) {

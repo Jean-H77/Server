@@ -33,7 +33,6 @@ public class GameHandler extends ChannelInboundHandlerAdapter {
         }
 
         if(msg instanceof LoginRequest lr) {
-           // serviceManager.loginService()
         }
     }
 

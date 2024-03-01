@@ -3,8 +3,10 @@ package org.server.engine;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.name.Names;
-import org.server.bootstrap.Bootstrap;
-import org.server.bootstrap.impl.NioNetworkBootstrap;
+import io.netty.channel.ChannelInboundHandler;
+import org.server.net.bootstrap.Bootstrap;
+import org.server.net.bootstrap.impl.NioNetworkBootstrap;
+import org.server.World;
 
 public class GameEngineModule extends AbstractModule {
 
@@ -12,9 +14,6 @@ public class GameEngineModule extends AbstractModule {
     protected void configure() {
         bind(GameLoop.class).in(Scopes.SINGLETON);
         bind(GameEngine.class).asEagerSingleton();
-
-        bind(Bootstrap.class)
-                .annotatedWith(Names.named("Nio"))
-                .to(NioNetworkBootstrap.class);
+        bind(World.class).in(Scopes.SINGLETON);
     }
 }

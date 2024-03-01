@@ -18,7 +18,6 @@ public record ServiceManager(
     }
 
     public void startServices() {
-        LOGGER.info("Starting services");
         loginService.start();
     }
 }
